@@ -154,7 +154,7 @@ int main() {
         getline(cin, command);
 
         if (command == "exit") break;
-        else if (command == "scheduler-test") {
+        else if (command == "scheduler -test") {
             if (!scheduler_running && !scheduler_test_ran) {
                 cout << "scheduler-test command recognized. Doing something.\n";
                 cout << "Scheduler Type   : " << config.scheduler_type << endl;
@@ -175,7 +175,7 @@ int main() {
                 cout << "Scheduler started with " << config.num_cpu << " CPUs.\n";
             }
         }
-        else if (command == "scheduler-stop") {
+        else if (command == "scheduler -stop") {
             if (scheduler_running) {
                 scheduler_should_stop = true;
                 if (sched_thread.joinable()) sched_thread.join();
@@ -194,7 +194,7 @@ int main() {
                 cout << "Scheduler is not running.\n";
             }
         }
-        else if (command == "screen-ls" || command == "report-util") screen_ls();
+        else if (command == "screen -ls" || command == "report-util") screen_ls();
         else if (command.rfind("screen -s ", 0) == 0) {
             string pname = command.substr(10);
             if (!pname.empty()) {
@@ -210,10 +210,10 @@ int main() {
             bool found = false;
             for (const auto& p : processes) {
                 if (p.name == pname) {
-                    cout << "Connected to " << pname << ". Type 'process-smi' to inspect.\n";
+                    cout << "Connected to " << pname << ". Type 'process -smi' to inspect.\n";
                     string subcmd;
                     getline(cin, subcmd);
-                    if (subcmd == "process-smi") {
+                    if (subcmd == "process -smi") {
                         cout << pname << " :: " << p.current_ins << " / " << p.total_ins << endl;
                     }
                     else {
