@@ -194,7 +194,7 @@ int main() {
                 cout << "Scheduler is not running.\n";
             }
         }
-        else if (command == "screen -ls" || command == "report-util") screen_ls();
+        else if (command == "screen -ls" || command == "report -util") screen_ls();
         else if (command.rfind("screen -s ", 0) == 0) {
             string pname = command.substr(10);
             if (!pname.empty()) {
