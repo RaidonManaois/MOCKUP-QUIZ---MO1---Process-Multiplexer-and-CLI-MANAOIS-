@@ -104,7 +104,7 @@ void screen_ls() {
     cout << "----------------------------------------------------\n\n";
 }
 
-// === Simple RR Scheduler ===
+// === Scheduler ===
 void scheduler() {
     scheduler_running = true;
     while (!scheduler_should_stop) {
@@ -143,7 +143,7 @@ int main() {
 )" << endl;
 
     cout << "\nWelcome to the CSOPESY OS\n";
-    cout << "Developer:\nRaidon Manaois\nLast Updated: 2025-06-11\n\n";
+    cout << "Developer:\nRaidon Manaois\nLast Updated: 2025-06-12\n\n";
 
     string command;
     thread sched_thread;
